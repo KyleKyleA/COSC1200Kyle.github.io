@@ -1,4 +1,4 @@
-package ObjectOrientProgramming1;
+package PracticeExercisesForJava;
 
 public class practicabilities {
     public static void main(String[] args) {

@@ -1,5 +1,5 @@
 
-package ObjectOrientProgramming1;
+package PracticeExercisesForJava;
 import java.util.Scanner;
 public class Volumetric {
     public static void main(String[] args) {

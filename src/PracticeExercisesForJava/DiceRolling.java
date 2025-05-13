@@ -1,4 +1,4 @@
-package ObjectOrientProgramming1;
+package PracticeExercisesForJava;
 import java.util.Random;
 import java.util.Scanner;
 public class DiceRolling {
