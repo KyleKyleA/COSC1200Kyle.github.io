@@ -12,8 +12,8 @@ public class LightSpeedCalculator {
 
         double distanceMeters = speed_of_light * time;
         double distanceKilometers = distanceMeters / 1000;
-        System.out.println("In " + time + "seconds, light travels" + distanceMeters + "meters");
-        System.out.println(distanceMeters + "Meters");
-        System.out.println(distanceKilometers + "Kilometers");
+        System.out.println("In " + time + "seconds, light travels" + distanceMeters + " meters");
+        System.out.println(distanceMeters + " Meters");
+        System.out.println(distanceKilometers + " Kilometers");
     }
 }
