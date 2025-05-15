@@ -12,10 +12,10 @@ public class ClassExercise1KyleA {
     static Scanner input = new Scanner(System.in);
     public static void main(String[] args) {
     showDescription();
-    int grade = getValidInteger(0, 100);
-    float number = getValidFloat(-5, 7);
+    int grade = GetValidInteger(0, 100);
+    float number = GetValidFloat(-5, 7);
     double price = GetValidDouble(0.0, 100.0);
-    char answer = getValidCharacter("YN");
+    char answer = GetValidCharacter("YN");
 
     //This is just a print statement showing the output after the program has been fully executed
     System.out.println("\nSummary");
@@ -35,7 +35,7 @@ public class ClassExercise1KyleA {
     //then run it through a while loop to make see it excutes right
     //along putting an if and else statement to determine if the data shown meets the critique
     //then we continue doing the same thing for the rest of the methods.
-    public static int getValidInteger(int min, int max) {
+    public static int GetValidInteger(int min, int max) {
         int value;
         while (true) {
             System.out.println("please enter a number between: " + min + "and " + max);
@@ -52,7 +52,7 @@ public class ClassExercise1KyleA {
         }
     }
     /*Second method is used to get the float value between min and max values */
-    public static float getValidFloat(float min, float max) {
+    public static float GetValidFloat(float min, float max) {
         float value;
         while (true) {
             System.out.println("Please enter a whole number between -5 and 7:" + min + "and " + max);
@@ -89,7 +89,7 @@ public class ClassExercise1KyleA {
     }
 
     /*This method is for getting valid character from allowed options (Y or N) */
-    public static char getValidCharacter(String validOptions) {
+    public static char GetValidCharacter(String validOptions) {
         char userInput;
         while (true) {
             System.out.print("Enter one of the following: " + validOptions + " : ");
