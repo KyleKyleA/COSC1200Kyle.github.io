@@ -15,7 +15,7 @@ public class ClassExercise1KyleA {
     int grade = GetValidInteger(0, 100);
     float number = GetValidFloat(-5, 7);
     double price = GetValidDouble(0.0, 100.0);
-    char answer = GetValidCharacter("YN");
+    char answer = GetValidCharacter("Yes or NO");
 
     //This is just a print statement showing the output after the program has been fully executed
     System.out.println("\nSummary");
