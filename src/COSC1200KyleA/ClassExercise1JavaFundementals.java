@@ -8,6 +8,7 @@ package COSC1200KyleA;
 import java.util.Scanner;
 public class ClassExercise1JavaFundementals {
 
+    /*Declarations for each method along with a description for the program*/
     static Scanner input = new Scanner(System.in);
     public static void main(String[] args) {
     showDescription();
@@ -16,6 +17,7 @@ public class ClassExercise1JavaFundementals {
     double price = GetValidDouble(0.0, 100.0);
     char answer = getValidCharacter("YN");
 
+    //This is just a print statement showing the output after the program has been fully executed
     System.out.println("\nSummary");
     System.out.println("Grade: " + grade);
     System.out.println("Float value: " + number);
@@ -25,9 +27,14 @@ public class ClassExercise1JavaFundementals {
     }
 
     public static void showDescription() {
-        System.out.println("Welcome to practice exercise number 1 dealing with creating 4 methods");
+        System.out.println("Welcome to practice exercise number 1 dealing with creating 4 methods" +
+                "to get ValidInteger, ValidFloat, ValidDouble, and ValidCharacter");
     }
     /*First method is to get valid integer between max and min */
+    //We use int as value since we're looking for a number
+    //then run it through a while loop to make see it excutes right
+    //along putting an if and else statement to determine if the data shown meets the critique
+    //then we continue doing the same thing for the rest of the methods.
     public static int getValidInteger(int min, int max) {
         int value;
         while (true) {
@@ -44,7 +51,7 @@ public class ClassExercise1JavaFundementals {
             }
         }
     }
-
+    /*Second method is used to get the float value between min and max values */
     public static float getValidFloat(float min, float max) {
         float value;
         while (true) {
