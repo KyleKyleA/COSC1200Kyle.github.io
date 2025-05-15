@@ -1,4 +1,4 @@
-/*ClassExercise1JavaFundementals.java
+/*ClassExercise1KyleA.java
 * #Name: Kyle Angeles
 * #Date 5/14/25
 * #Description Write a Validation class containing 4 methods (GetValidInteger, GetValidFloat, GetValidDouble, GetValidCharacter)
@@ -6,7 +6,7 @@
 *  enter valid data that meets the criteria of both data type and range of values.*/
 package COSC1200KyleA;
 import java.util.Scanner;
-public class ClassExercise1JavaFundementals {
+public class ClassExercise1KyleA {
 
     /*Declarations for each method along with a description for the program*/
     static Scanner input = new Scanner(System.in);
