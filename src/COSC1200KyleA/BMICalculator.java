@@ -60,9 +60,37 @@ public class BMICalculator {
                     //This displays an output
                     System.out.println("\n BMI Calculations ");
                     System.out.println("Height: " + height + "In's ");
-                    System.out.println("Weight: " + weight + "Pounds");
+                    System.out.println("Weight: " + weight + " Pounds");
                     System.out.println("Your BMI is: " + bmiFormatted);
                     System.out.println("Your BMI category is classified as: " + status);
+
+                    //Suggesting weight change to reach heaalthy range
+                    double minHealthyWeight = 18.5 * height * height / 703;
+                    double maxHealthyWeight = 24.9 * height * height / 703;
+
+                    //This piece of code reports a suggested weight loss or gain to be considered healthy
+                    if (bmi < 18.5) {
+                        double neededGain = minHealthyWeight - weight;
+                        System.out.printf("To be considered healthy, you should gain approximately %.1f pounds.%n", neededGain);
+                    } else if (bmi > 24.9) {
+                        double neededLoss = weight - maxHealthyWeight;
+                        System.out.printf("To be considered healthy, you should lose approximately %.1f pounds.%n", neededLoss);
+                    } else {
+                        System.out.println("You are within the healthy weight range. Keep it up!");
+                    }
+
+
+                    //Making a yes or no continuation system
+                    input.nextLine();
+                    System.out.println("\nWould you like to calculate your BMI again? (Yes or no");
+                    String answer = input.nextLine().trim().toLowerCase();
+
+                    //Prompt to make it rerun the program either syaing yes or no
+                    if (answer.equals("Yes") || answer.equals("y")) {
+                        System.out.println("Please re-run the program to calculate again.");
+                    } else {
+                        System.out.println("Thank you for using BMI Calculator :) ");
+                    }
                 } else {
                     System.out.println("Error: Height must be between 24 and 120 inches.");
                 }
@@ -73,20 +101,5 @@ public class BMICalculator {
             System.out.println("Error: Weight must be at least 25 pounds.");
             System.out.println("Error: Please enter a numeric value for weight.");
         }
-
-
-        //Making a yes or no continuation system
-        input.nextLine();
-        System.out.println("\nWould you like to calculate your BMI again? (Yes or no");
-        String answer = input.nextLine().trim().toLowerCase();
-
-        //Prompt to make it rerun the program either syaing yes or no
-        if (answer.equals("Yes") || answer.equals("y")) {
-            System.out.println("Please re-run the program to calculate again.");
-        } else {
-            System.out.println("Thank you for using BMI Calculator :) ");
-        }
-
     }
 }
-
