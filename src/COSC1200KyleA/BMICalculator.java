@@ -69,12 +69,13 @@ public class BMICalculator {
                     double maxHealthyWeight = 24.9 * height * height / 703;
 
                     //This piece of code reports a suggested weight loss or gain to be considered healthy
+                    //Printing f just means formatting the string you see below
                     if (bmi < 18.5) {
-                        double neededGain = minHealthyWeight - weight;
-                        System.out.printf("To be considered healthy, you should gain approximately %.1f pounds.%n", neededGain);
+                        double neededToGain = minHealthyWeight - weight;
+                        System.out.printf("To be considered healthy, you should gain approximately %.1f pounds.%n", neededToGain);
                     } else if (bmi > 24.9) {
-                        double neededLoss = weight - maxHealthyWeight;
-                        System.out.printf("To be considered healthy, you should lose approximately %.1f pounds.%n", neededLoss);
+                        double neededToLose = weight - maxHealthyWeight;
+                        System.out.printf("To be considered healthy, you should lose approximately %.1f pounds.%n", neededToLose);
                     } else {
                         System.out.println("You are within the healthy weight range. Keep it up!");
                     }
