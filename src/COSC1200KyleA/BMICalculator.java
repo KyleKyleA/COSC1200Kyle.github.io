@@ -29,7 +29,7 @@ public class BMICalculator {
             weight = input.nextDouble();
         }
 
-
+        //Prompt to enter your height in inches
         if (25 <= weight) {
             System.out.print("Enter height in inches (between 24 and 120): ");
             if (input.hasNextDouble()) {
@@ -64,7 +64,7 @@ public class BMICalculator {
                     System.out.println("Your BMI is: " + bmiFormatted);
                     System.out.println("Your BMI category is classified as: " + status);
 
-                    //Suggesting weight change to reach heaalthy range
+                    //Suggesting weight change to reach healthy range
                     double minHealthyWeight = 18.5 * height * height / 703;
                     double maxHealthyWeight = 24.9 * height * height / 703;
 
@@ -85,7 +85,7 @@ public class BMICalculator {
                     System.out.println("\nWould you like to calculate your BMI again? (Yes or no");
                     String answer = input.nextLine().trim().toLowerCase();
 
-                    //Prompt to make it rerun the program either syaing yes or no
+                    //Prompt to make it rerun the program either saying yes or no
                     if (answer.equals("Yes") || answer.equals("y")) {
                         System.out.println("Please re-run the program to calculate again.");
                     } else {
