@@ -6,11 +6,11 @@ public class SalariedStaff extends Employee {
     private double yearlySalary;
 
     public SalariedStaff(String name, String birthName, String EmployeeID, double yearlySalary) {
-        super(name, birthName, EmployeeID);
+        super(name, birthName, EmployeeID); //Calling constructor
         setYearlySalary(yearlySalary);
     }
 
-    public double setYearlySalary() {
+    public double getYearlySalary() {
         return yearlySalary;
     }
 
