@@ -11,12 +11,13 @@ import java.text.NumberFormat;
 
 public class main {
 
-/*Region Functions*/
+    /*Region Functions*/
     public static void main(String[] args) {
         NumberFormat currency = NumberFormat.getCurrencyInstance();
         //Algorithim for Salaried Staff along with using a try block
+        //This is the code for the first try block
         try {
-            SalariedStaff staff1 = new SalariedStaff ("Staff name: ", 6000);
+            SalariedStaff staff1 = new SalariedStaff("Staff name: ", 6000);
 
             //Print statements along with varibles
             System.out.println("Original salary" + staff1.getName() + ": " +
@@ -31,20 +32,6 @@ public class main {
 
             //Creating
         }
-        }
-
-
-
-
-
-
-    public Employee {
-        //Line of code implemented here
     }
 
-    public HourlyWorker {
-        //Line of code implemented here
-
-    }
-}
 /*EndRegion functions*/

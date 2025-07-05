@@ -10,6 +10,8 @@ public class SalariedStaff extends Employee {
         setYearlySalary(yearlySalary);
     }
 
+
+    //returns the value of yearlySalary
     public double getYearlySalary() {
         return yearlySalary;
     }
