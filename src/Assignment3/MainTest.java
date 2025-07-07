@@ -2,24 +2,24 @@ package Assignment3;
 /* * Name: Kyle Angeles
  * Date 7/4/25
  * Description - using oop concepts and try and exception block to create a program
- * for a payroll program that includes the classes of the following and to make it a functionak
- * payroll as would a business should distrubed money to their employees and persons
+ * for a payroll program that includes the classes of the following and to make it a functional
+ * payroll as would a business should distribute money to their employees and persons
 * */
-//Imported Libaries
+//Imported Libraries
 import java.text.NumberFormat;
-//EndRegion Imported libaries
+//EndRegion Imported libraries
 
-public class main {
+public class MainTest {
 
     /*Region Functions*/
     public static void main(String[] args) {
         NumberFormat currency = NumberFormat.getCurrencyInstance();
-        //Algorithim for Salaried Staff along with using a try block
+        //Algorithm for Salaried Staff along with using a try block
         //This is the code for the first try block
         try {
             SalariedStaff staff1 = new SalariedStaff("Staff name: ", 6000);
 
-            //Print statements along with varibles
+            //Print statements along with variables
             System.out.println("Original salary" + staff1.getName() + ": " +
                     currency.format(staff1.getYearlySalary()));
             //Print new line
@@ -33,5 +33,6 @@ public class main {
             //Creating
         }
     }
+}
 
 /*EndRegion functions*/
