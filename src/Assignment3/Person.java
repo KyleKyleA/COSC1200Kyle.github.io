@@ -1,3 +1,5 @@
+package Assignment3;
+
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -31,6 +33,9 @@ public class Person {
     public Person(String fullName, LocalDate birthDate) {
         myBirthDate = birthDate;
         this.setNames(fullName);
+    }
+
+    public Person(String name, String birthDate) {
     }
 
     /**
