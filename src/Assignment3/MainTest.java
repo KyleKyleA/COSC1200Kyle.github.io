@@ -29,10 +29,27 @@ public class MainTest {
             staff1.setYearlySalary(68000); //change salary
             System.out.println("Updated salary for " + staff1.getName() + ": " +
                     currency.format(staff1.getYearlySalary()));
+            System.out.println();
 
-            //Creating
+            //Hourly Woker Test
+            HourlyWorker worker1 = new HourlyWorker("Staff name: ", "Birth Date: ", "EmployeeID:", 18.50, 40.0);
+            System.out.println("Hourly rate for " + worker1.getName() +
+                    currency.format(worker1.getHourlyRate()));
+
+            System.out.println();
+            //For example setting the hourly rate to 20
+            worker1.setHourlyRate(20.0);
+            System.out.println("Updated Hourly  rate for " + staff1.getName() + ":" +
+                    currency.format(worker1.getHourlyRate()));
+
+        } catch (IllegalArgumentException e) {
+            Syetem.out.println("Error" + e.getMessage());
+
         }
     }
 }
+
+//This code is for the second try block: payroll report for 5 emplyees.
+
 
 /*EndRegion functions*/
