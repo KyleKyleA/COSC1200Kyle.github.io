@@ -6,7 +6,7 @@ public class HourlyWorker extends Employee {
     private double hourlyRate;
     private double hoursPerWeek;
 
-
+/*Region Functions*/
     public HourlyWorker(String name, String birthDate, String employeeID,
                         double hourlyRate, double hoursPerWeek) {
         super(name, birthDate, employeeID);
@@ -46,3 +46,4 @@ public class HourlyWorker extends Employee {
     }
 
 }
+/*EndRegion Functions*/
