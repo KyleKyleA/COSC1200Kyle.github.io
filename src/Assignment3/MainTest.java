@@ -43,13 +43,41 @@ public class MainTest {
                     currency.format(worker1.getHourlyRate()));
 
         } catch (IllegalArgumentException e) {
-            Syetem.out.println("Error" + e.getMessage());
+            System.out.println("Error" + e.getMessage());
 
         }
     }
 }
 
 //This code is for the second try block: payroll report for 5 emplyees.
+try {
+
+    Employee[] payroll = new Employee[5]; //We are going to use 5 employees for instance
+
+    //Adding two new Salaried Staff
+    payroll[0] = new SalariedStaff();
+    payroll[1] = new SalariedStaff();
+
+    //Adding three hourlyWorker
+    payroll[2] = new HourlyWorker();
+    payroll[3] = new HourlyWorker();
+    payroll[4] = new HourlyWorker();
+
+    //Payroll Report
+    System.out.println("Payroll report:");
+    System.out.println("--------------------------");
+
+    double totalPaid = 0.0;
+
+
+
+
+
+
+        }
+        }
+}
+
 
 
 /*EndRegion functions*/
