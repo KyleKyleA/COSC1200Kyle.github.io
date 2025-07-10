@@ -20,7 +20,7 @@ public class Maintest {
             System.out.println();
 
             //Implementation for SalariedStaff
-            SalariedStaff staff1 = new SalariedStaff("Kyle", LocalDate.parse("2006-12-06"), "12345678", 50000);
+            SalariedStaff staff1 = new SalariedStaff("Kyle Angeles", LocalDate.parse("2006-12-06"), "12345678", 50000);
             System.out.println("Original Salary for " + staff1.getName() + ": " +
                     NumberFormat.getCurrencyInstance().format(staff1.getYearlySalary()));
             System.out.println("---------------------------");
