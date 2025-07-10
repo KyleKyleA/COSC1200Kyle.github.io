@@ -7,7 +7,6 @@ package Assignment3;
 * */
 //Imported Libraries
 import java.text.NumberFormat;
-import java.util.Scanner;
 import java.time.LocalDate;
 //EndRegion Imported libraries
 public class Maintest {
@@ -15,14 +14,20 @@ public class Maintest {
     /*Region Functions*/
     public static void main(String[] args) {
         NumberFormat currency = NumberFormat.getCurrencyInstance();
-        Scanner input = new Scanner(System.in);
-        //Algorithm for Salaried Staff along with using a try block
+        //Algorithm for Salaried Staff  and hourly worker along with using a try block
         //This is the code for the first try block
         try {
+            System.out.println("Welcome to Test 1");
+            System.out.println();
 
+
+            SalariedStaff staff1 = new SalariedStaff("Kyle", LocalDate.parse("2006-12-06"), "12345678", 100000);
+            System.out.println("Original Salary for " + staff1.getName() + ": " +
+                    NumberFormat.getCurrencyInstance().format(staff1.getYearlySalary()));
+            System.out.println("---------------------------");
 
             HourlyWorker worker1 = new HourlyWorker("Kyle Angeles", LocalDate.parse("2006-12-06"), "12345678", 17.50, 38);
-            System.out.println("Hourly rate for " + worker1.getName() +
+            System.out.println("Hourly rate for " + worker1.getName() + ": " +
                     currency.format(worker1.getHourlyRate()));
 
             System.out.println();
@@ -38,15 +43,16 @@ public class Maintest {
 
         }
 
-
-//This code is for the second try block: payroll report for 5 emplyees.
+        System.out.println();
+//This code is for the second try block: payroll report for 5 employees.
 
         try {
 
-
+            System.out.println("Test Number 2 ");
             Employee[] payroll = new Employee[5]; //We are going to use 5 employees for instance
 
             //Adding two new Salaried Staff
+            //Randomize Different values that I've created
             payroll[0] = new SalariedStaff("Shawn Nguyen", LocalDate.parse("1990-05-05"), "85629175", 57020);
             payroll[1] = new SalariedStaff("Tre Smith", LocalDate.parse("1999-12-03"), "12345678", 62000);
 
