@@ -1,5 +1,7 @@
 package Assignment3;
 
+import java.time.LocalDate;
+
 public class HourlyWorker extends Employee {
 
     //Declaring variables
@@ -7,7 +9,7 @@ public class HourlyWorker extends Employee {
     private double hoursPerWeek;
 
 /*Region Functions*/
-    public HourlyWorker(String name, String birthDate, String employeeID,
+    public HourlyWorker(String name, LocalDate birthDate, String employeeID,
                         double hourlyRate, double hoursPerWeek) {
         super(name, birthDate, employeeID);
         setHourlyRate(hourlyRate);

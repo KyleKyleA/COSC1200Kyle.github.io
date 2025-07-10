@@ -1,11 +1,13 @@
 package Assignment3;
 
+import java.time.LocalDate;
+
 //Class for the salaried staff
 //Region function
 public class SalariedStaff extends Employee {
     private double yearlySalary;
 
-    public SalariedStaff(String name, String birthName, String EmployeeID, double yearlySalary) {
+    public SalariedStaff(String name, LocalDate birthName, String EmployeeID, double yearlySalary) {
         super(name, birthName, EmployeeID); //Calling constructor
         setYearlySalary(yearlySalary);
     }

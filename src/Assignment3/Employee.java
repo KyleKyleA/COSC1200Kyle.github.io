@@ -1,11 +1,13 @@
 package Assignment3;
 
+import java.time.LocalDate;
+
 public abstract class Employee extends Person  {
     
     private final String employeeID;
     
-    public Employee(String name, String birthDate, String employeeID) {
-        super(name, birthDate);
+    public Employee(String name, LocalDate birthDate, String employeeID) {
+        super(name, (birthDate));
         
         if (!employeeID.matches("\\d{8}")) {
             throw new IllegalArgumentException("Employee ID must be exactly 8 digits or characters");
