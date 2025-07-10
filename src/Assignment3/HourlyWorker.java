@@ -33,7 +33,7 @@ public class HourlyWorker extends Employee {
 
     //Method to set the hours per week on the main
     public void setHoursPerWeek(double hoursPerWeek) {
-        if (hoursPerWeek < 48.0) {
+        if (hoursPerWeek > 48.0) {
             throw new IllegalArgumentException("Maximum of hours you can work in a week is 48Hrs. ");
         }
         this.hoursPerWeek = hoursPerWeek;
