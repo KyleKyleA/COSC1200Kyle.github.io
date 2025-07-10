@@ -14,25 +14,33 @@ public class Maintest {
     /*Region Functions*/
     public static void main(String[] args) {
         NumberFormat currency = NumberFormat.getCurrencyInstance();
-        //Algorithm for Salaried Staff  and hourly worker along with using a try block
         //This is the code for the first try block
         try {
             System.out.println("Welcome to Test 1");
             System.out.println();
 
-
-            SalariedStaff staff1 = new SalariedStaff("Kyle", LocalDate.parse("2006-12-06"), "12345678", 100000);
+            //Implementation for SalariedStaff
+            SalariedStaff staff1 = new SalariedStaff("Kyle", LocalDate.parse("2006-12-06"), "12345678", 50000);
             System.out.println("Original Salary for " + staff1.getName() + ": " +
                     NumberFormat.getCurrencyInstance().format(staff1.getYearlySalary()));
             System.out.println("---------------------------");
 
+            //Implementation for HourlyWorker
             HourlyWorker worker1 = new HourlyWorker("Kyle Angeles", LocalDate.parse("2006-12-06"), "12345678", 17.50, 38);
             System.out.println("Hourly rate for " + worker1.getName() + ": " +
                     currency.format(worker1.getHourlyRate()));
 
             System.out.println();
+
+            //Updated Salary
+            staff1.setYearlySalary(70000);
+            System.out.println("Updated Salary for " + staff1.getName() + ": " +
+                    NumberFormat.getCurrencyInstance().format(staff1.getYearlySalary()));
+
+
             //For example setting the hourly rate to 20
             // Update rate and hours
+            System.out.println();
             worker1.setHourlyRate(worker1.getHourlyRate() + 2.0);
             worker1.setHoursPerWeek(worker1.getHoursPerWeek() + 5.0);
             System.out.println("Updated hourly rate: " + currency.format(worker1.getHourlyRate()));
@@ -44,7 +52,8 @@ public class Maintest {
         }
 
         System.out.println();
-//This code is for the second try block: payroll report for 5 employees.
+
+        //This code is for the second try block: payroll report for 5 employees.
 
         try {
 

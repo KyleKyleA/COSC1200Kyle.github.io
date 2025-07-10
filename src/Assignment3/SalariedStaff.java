@@ -1,9 +1,9 @@
 package Assignment3;
-
+/*Region imported Libraries*/
 import java.time.LocalDate;
-
+/*EndRegion Imported Libraries*/
 //Class for the salaried staff
-//Region function
+/*Region function*/
 public class SalariedStaff extends Employee {
     private double yearlySalary;
 
@@ -32,4 +32,4 @@ public class SalariedStaff extends Employee {
     }
 
 }
-//EndRegion Functions
+/*EndRegion Functions*/

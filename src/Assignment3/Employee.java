@@ -1,11 +1,11 @@
 package Assignment3;
-
+/*Region Imported Libaries*/
 import java.time.LocalDate;
-
+/*EndRegion Imported Libraries*/
 public abstract class Employee extends Person  {
-    
+
     private final String employeeID;
-    
+/*Region functions*/
     public Employee(String name, LocalDate birthDate, String employeeID) {
         super(name, (birthDate));
         
@@ -22,3 +22,4 @@ public abstract class Employee extends Person  {
     
     public abstract double calculatePayDay();
 }
+/*EndRegion Functions*/
