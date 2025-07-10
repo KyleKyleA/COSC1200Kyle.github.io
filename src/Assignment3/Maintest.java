@@ -17,6 +17,7 @@ public class Maintest {
         //This is the code for the first try block
         try {
             System.out.println("Welcome to Test 1");
+            System.out.println("Salary staff report");
             System.out.println();
 
             //Implementation for SalariedStaff
@@ -29,8 +30,7 @@ public class Maintest {
             HourlyWorker worker1 = new HourlyWorker("Kyle Angeles", LocalDate.parse("2006-12-06"), "12345678", 17.50, 38);
             System.out.println("Hourly rate for " + worker1.getName() + ": " +
                     currency.format(worker1.getHourlyRate()));
-
-            System.out.println();
+            System.out.println("----------------------------");
 
             //Updated Salary
             staff1.setYearlySalary(70000);
@@ -51,6 +51,7 @@ public class Maintest {
 
         }
 
+        System.out.println();
         System.out.println();
 
         //This code is for the second try block: payroll report for 5 employees.
