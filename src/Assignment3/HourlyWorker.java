@@ -45,7 +45,7 @@ public class HourlyWorker extends Employee {
     //But use of hourlyRate and hoursPerWeek
     public double calculatePayDay() {
 
-        return  Math.round((hourlyRate * hoursPerWeek) * 100) / 100;
+        return (double) Math.round((hourlyRate * hoursPerWeek) * 100) / 100;
     }
 
 }

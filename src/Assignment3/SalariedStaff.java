@@ -29,7 +29,7 @@ public class SalariedStaff extends Employee {
 
     public double calculatePayDay() {
 
-        return  Math.round((yearlySalary / 52.0) * 100) / 100;
+        return (double) Math.round((yearlySalary / 52.0) * 100) / 100;
     }
 
 }

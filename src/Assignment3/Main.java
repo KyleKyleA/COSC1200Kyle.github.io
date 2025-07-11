@@ -64,10 +64,10 @@ public class Main {
             //Adding two new Salaried Staff
             //Randomize Different values that I've created
             payroll[0] = new SalariedStaff("Shawn Nguyen", LocalDate.parse("1990-05-05"), "85629175", 57020);
-            payroll[1] = new SalariedStaff("Tre Smith", LocalDate.parse("1999-12-03"), "12345678", 62000);
+            payroll[1] = new SalariedStaff("Tre Smith", LocalDate.parse("1999-12-03"), "12345678", 62010);
 
-            payroll[2] = new HourlyWorker("Emily Chan", LocalDate.parse("2004-02-15"), "85723845", 17.00, 38);
-            payroll[3] = new HourlyWorker("Liam Matthews", LocalDate.parse("1998-11-23"), "75762107", 20.50, 35);
+            payroll[2] = new HourlyWorker("Emily Chan", LocalDate.parse("2004-02-15"), "85723845", 16.21, 38);
+            payroll[3] = new HourlyWorker("Liam Matthews", LocalDate.parse("1998-11-23"), "75762107", 22.27, 35);
             payroll[4] = new HourlyWorker("Sara Kim", LocalDate.parse("2006-09-12"), "91023571", 18.25, 42);
 
             //Payroll Report
