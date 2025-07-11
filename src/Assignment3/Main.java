@@ -5,11 +5,11 @@ package Assignment3;
  * for a payroll program that includes the classes of the following and to make it a functional
  * payroll as would a business should distribute money to their employees and persons
 * */
-//Imported Libraries
+/*Imported Libraries*/
 import java.text.NumberFormat;
 import java.time.LocalDate;
-//EndRegion Imported libraries
-public class Maintest {
+/*EndRegion Imported libraries*/
+public class Main {
 
     /*Region Functions*/
     public static void main(String[] args) {
