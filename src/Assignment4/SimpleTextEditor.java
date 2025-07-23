@@ -37,13 +37,15 @@ public class SimpleTextEditor {
 
 
         //Save Button
+        JButton SaveButton = new JButton("Save Button");
 
 
         //Open Button
-
+        JButton openButton = new JButton("Open File");
 
 
         //Exit button
+        JButton exitButton = new JButton("Exit Button");
 
 
         //TextField
@@ -63,9 +65,27 @@ public class SimpleTextEditor {
 
         //ActionListner for those buttons and the file
 
+        /*SaveButton Function*/
+        SaveButton.addActionListener(e ->{
+
+        });
+
+        /*OpenButton Function */
+        openButton.addActionListener(e -> {
+
+        });
+
+        /*ExitButton Function */
+        exitButton.addActionListener(e -> {
+
+        });
 
 
 
+
+
+
+        ;
     }
 }
 /*EndRegion Function*/
