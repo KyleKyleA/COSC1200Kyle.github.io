@@ -1,10 +1,23 @@
 package Assignment4;
-/*Region Imported Libaries*/
 
+/*Region Imported Libaries*/
+//GUI
 import javax.swing.*;
+
+//Layout and Events
 import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+
+//File I/O
+import java.io.BufferedReader;
+import java.io.File;
+import java.io.FileReader;
+import java.io.FileWriter;
+import java.io.IOException;
 
 /*EndRegion Imported Libaries*/
+
 /*Region Function*/
 public class SimpleTextEditor {
     public static void main(String[] args) {
