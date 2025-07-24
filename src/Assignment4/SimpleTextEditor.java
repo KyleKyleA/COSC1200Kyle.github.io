@@ -23,6 +23,9 @@ import java.io.IOException;
 public class SimpleTextEditor {
     public static void main(String[] args) {
 
+        //Part of the secret sauce
+        final int[] filesOpenedCount = {0};
+
         /*GUI Layout*/
         JFrame frame = new JFrame("Welcome to simple Text Editor ");
         frame.setSize(500, 600);
@@ -37,30 +40,33 @@ public class SimpleTextEditor {
 
 
         /*Region for button panel*/
-        JPanel buttonPanel = new JPanel();
+        JPanel buttonPanel = new JPanel(new FlowLayout(FlowLayout.LEFT));
         JButton saveButton = new JButton("Save Button");
         JButton openButton = new JButton("Open File");
         JButton exitButton = new JButton("Exit Button");
+
+        // Add buttons to panel
         buttonPanel.add(openButton);
         buttonPanel.add(saveButton);
         buttonPanel.add(exitButton);
-        buttonPanel.add(buttonPanel, BorderLayout.SOUTH);
+        frame.add(buttonPanel, BorderLayout.NORTH);
         /*EndRegion for Button Panel*/
 
 
         //TextField
         JTextField textField = new JTextField();
-        filePathField.setEditable(false);
-        frame.add(filePathField, BorderLayout.NORTH);
+        textArea.setEditable(false);
+        frame.add(textArea, BorderLayout.NORTH);
 
 
         // JFileChooser setup
         JFileChooser fileChooser = new JFileChooser();
 
         //Secret function
-        JLabel wordCountLabel = new JLabel("Words: 0");
-        buttonPanel.add(wordCountLabel);
+        JLabel totalWordCount = new JLabel("Total Word count: 0");
+        buttonPanel.add(totalWordCount);
 
+        frame.add(buttonPanel, BorderLayout.NORTH);
 
         //ActionListner for those buttons and the file
 
@@ -68,7 +74,7 @@ public class SimpleTextEditor {
         textArea.addCaretListener(e -> {
             String text = textArea.getText().trim();
             int words = text.isEmpty() ? 0 : text.split("\\s+").length;
-            wordCountLabel.setText("Words: " + words);
+            totalWordCount.setText("Words: " + words);
         });
 
         /*SaveButton Function*/
@@ -78,7 +84,7 @@ public class SimpleTextEditor {
                 File file = fileChooser.getSelectedFile();
                 try (FileWriter writer = new FileWriter(file)) {
                     writer.write(textArea.getText());
-                    filePathField.setText("Saved: " + file.getAbsolutePath());
+                    textArea.setText("Saved: " + file.getAbsolutePath());
                 } catch (IOException ex) {
                     JOptionPane.showMessageDialog(frame, "Error saving file: " + ex.getMessage());
                 }
@@ -97,7 +103,7 @@ public class SimpleTextEditor {
                         content.append(line).append("\n");
                     }
                     textArea.setText(content.toString());
-                    filePathField.setText("Opened: " + file.getAbsolutePath());
+                    textArea.setText("Opened: " + file.getAbsolutePath());
                 } catch (IOException ex) {
                     JOptionPane.showMessageDialog(frame, "Error opening file: " + ex.getMessage());
                 }
