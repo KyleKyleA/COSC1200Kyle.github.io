@@ -11,11 +11,11 @@ import java.awt.event.ActionListener;
 import java.io.FileWriter;
 
 //File I/O
-//import java.io.BufferedReader;
-//import java.io.File;
-//import java.io.FileReader;
-//import java.io.FileWriter;
-//import java.io.IOException;
+import java.io.BufferedReader;
+import java.io.File;
+import java.io.FileReader;
+import java.io.FileWriter;
+import java.io.IOException;
 
 /*EndRegion Imported Libaries*/
 
@@ -70,34 +70,46 @@ public class SimpleTextEditor {
             int words = text.isEmpty() ? 0 : text.split("\\s+").length;
             wordCountLabel.setText("Words: " + words);
         });
+
         /*SaveButton Function*/
-        saveButton.addActionListener(e ->{
+        saveButton.addActionListener(e -> {
             int returnValue = fileChooser.showSaveDialog(null);
             if (returnValue == fileChooser.APPROVE_OPTION) {
                 File file = fileChooser.getSelectedFile();
-                try (FileWriter writing = new FileWriter(file)) {
-                    writing.write(textArea.getText());
-
+                try (FileWriter writer = new FileWriter(file)) {
+                    writer.write(textArea.getText());
+                    filePathField.setText("Saved: " + file.getAbsolutePath());
+                } catch (IOException ex) {
+                    JOptionPane.showMessageDialog(frame, "Error saving file: " + ex.getMessage());
                 }
             }
         });
 
         /*OpenButton Function */
         openButton.addActionListener(e -> {
-
+            int returnVal = fileChooser.showOpenDialog(null);
+            if (returnVal == fileChooser.APPROVE_OPTION) {
+                File file = fileChooser.getSelectedFile();
+                try (BufferedReader reader = new BufferedReader(new FileReader(file))) {
+                    StringBuilder content = new StringBuilder();
+                     String line;
+                    while ((line = reader.readLine()) != null) {
+                        content.append(line).append("\n");
+                    }
+                    textArea.setText(content.toString());
+                    filePathField.setText("Opened: " + file.getAbsolutePath());
+                } catch (IOException ex) {
+                    JOptionPane.showMessageDialog(frame, "Error opening file: " + ex.getMessage());
+                }
+            }
         });
 
         /*ExitButton Function */
-        exitButton.addActionListener(e -> {
+        exitButton.addActionListener(e -> System.exit(0));
 
-        });
+        //Show Frame
+        frame.setVisible(true);
 
-
-
-
-
-
-        ;
     }
 }
 /*EndRegion Function*/
