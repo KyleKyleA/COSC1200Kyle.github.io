@@ -6,15 +6,12 @@ import javax.swing.*;
 
 //Layout and Events
 import java.awt.*;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
 import java.io.FileWriter;
 
 //File I/O
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileReader;
-import java.io.FileWriter;
 import java.io.IOException;
 
 /*EndRegion Imported Libaries*/
@@ -55,8 +52,7 @@ public class SimpleTextEditor {
 
         //TextField
         JTextField textField = new JTextField();
-        textArea.setEditable(false);
-        frame.add(textArea, BorderLayout.NORTH);
+        textArea.setEditable(true);
 
 
         // JFileChooser setup
@@ -80,16 +76,17 @@ public class SimpleTextEditor {
         /*SaveButton Function*/
         saveButton.addActionListener(e -> {
             int returnValue = fileChooser.showSaveDialog(null);
-            if (returnValue == fileChooser.APPROVE_OPTION) {
+            if (returnValue == JFileChooser.APPROVE_OPTION) {
                 File file = fileChooser.getSelectedFile();
                 try (FileWriter writer = new FileWriter(file)) {
                     writer.write(textArea.getText());
-                    textArea.setText("Saved: " + file.getAbsolutePath());
+                    JOptionPane.showMessageDialog(frame, "File saved: " + file.getAbsolutePath());
                 } catch (IOException ex) {
                     JOptionPane.showMessageDialog(frame, "Error saving file: " + ex.getMessage());
                 }
             }
         });
+
 
         /*OpenButton Function */
         openButton.addActionListener(e -> {
@@ -98,17 +95,17 @@ public class SimpleTextEditor {
                 File file = fileChooser.getSelectedFile();
                 try (BufferedReader reader = new BufferedReader(new FileReader(file))) {
                     StringBuilder content = new StringBuilder();
-                     String line;
+                    String line;
                     while ((line = reader.readLine()) != null) {
                         content.append(line).append("\n");
                     }
                     textArea.setText(content.toString());
-                    textArea.setText("Opened: " + file.getAbsolutePath());
                 } catch (IOException ex) {
                     JOptionPane.showMessageDialog(frame, "Error opening file: " + ex.getMessage());
                 }
             }
         });
+
 
         /*ExitButton Function */
         exitButton.addActionListener(e -> System.exit(0));
