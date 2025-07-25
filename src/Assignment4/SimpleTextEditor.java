@@ -61,11 +61,9 @@ public class SimpleTextEditor {
         //Secret function
         JLabel totalWordCount = new JLabel("Total Word count: 0");
         buttonPanel.add(totalWordCount);
-
         frame.add(buttonPanel, BorderLayout.NORTH);
 
         //ActionListner for those buttons and the file
-
         /* Update word count as user type*/
         textArea.addCaretListener(e -> {
             String text = textArea.getText().trim();
@@ -78,6 +76,10 @@ public class SimpleTextEditor {
             int returnValue = fileChooser.showSaveDialog(null);
             if (returnValue == JFileChooser.APPROVE_OPTION) {
                 File file = fileChooser.getSelectedFile();
+
+                if (!file.getName().toLowerCase().endsWith(".txt")) {
+                    file = new File(file.getAbsolutePath() + ".txt");
+                }
                 try (FileWriter writer = new FileWriter(file)) {
                     writer.write(textArea.getText());
                     JOptionPane.showMessageDialog(frame, "File saved: " + file.getAbsolutePath());
@@ -94,12 +96,12 @@ public class SimpleTextEditor {
             if (returnVal == fileChooser.APPROVE_OPTION) {
                 File file = fileChooser.getSelectedFile();
                 try (BufferedReader reader = new BufferedReader(new FileReader(file))) {
-                    StringBuilder content = new StringBuilder();
+                    String content = "";
                     String line;
                     while ((line = reader.readLine()) != null) {
-                        content.append(line).append("\n");
+                        content += line + "\n";
                     }
-                    textArea.setText(content.toString());
+                    textArea.setText(content);
                 } catch (IOException ex) {
                     JOptionPane.showMessageDialog(frame, "Error opening file: " + ex.getMessage());
                 }
