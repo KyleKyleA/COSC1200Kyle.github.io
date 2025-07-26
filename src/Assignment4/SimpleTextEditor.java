@@ -30,7 +30,6 @@ public class SimpleTextEditor {
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
         //JScroll
-        //Only one use of this Function
         JTextArea textArea = new JTextArea();
         JScrollPane scrollPane = new JScrollPane(textArea);
         frame.add(scrollPane, BorderLayout.CENTER);
@@ -63,7 +62,7 @@ public class SimpleTextEditor {
         buttonPanel.add(totalWordCount);
         frame.add(buttonPanel, BorderLayout.NORTH);
 
-        //ActionListner for those buttons and the file
+        //ActionListner for those buttons
         /* Update word count as user type*/
         textArea.addCaretListener(e -> {
             String text = textArea.getText().trim();
@@ -73,8 +72,8 @@ public class SimpleTextEditor {
 
         /*SaveButton Function*/
         saveButton.addActionListener(e -> {
-            int returnValue = fileChooser.showSaveDialog(null);
-            if (returnValue == JFileChooser.APPROVE_OPTION) {
+            int returnVal = fileChooser.showSaveDialog(null);
+            if (returnVal == JFileChooser.APPROVE_OPTION) {
                 File file = fileChooser.getSelectedFile();
 
                 if (!file.getName().toLowerCase().endsWith(".txt")) {
