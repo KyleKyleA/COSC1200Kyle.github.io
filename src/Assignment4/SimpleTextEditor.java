@@ -1,6 +1,13 @@
 package Assignment4;
+/* * Name: Kyle Angeles
+ * Date 7/22/25
+ * Description: For this program, we will be implementing a basic
+  Swing UI and reading and writing to a file.
+  The actual application will be sort of like Windows Notepad, but even simpler.
+ *
+ */
 
-/*Region Imported Libaries*/
+/*Region Imported Libraries*/
 //GUI
 import javax.swing.*;
 
@@ -14,14 +21,11 @@ import java.io.File;
 import java.io.FileReader;
 import java.io.IOException;
 
-/*EndRegion Imported Libaries*/
+/*EndRegion Imported Libraries*/
 
 /*Region Function*/
 public class SimpleTextEditor {
     public static void main(String[] args) {
-
-        //Part of the secret sauce
-        final int[] filesOpenedCount = {0};
 
         /*GUI Layout*/
         JFrame frame = new JFrame("Welcome to simple Text Editor ");
@@ -50,7 +54,6 @@ public class SimpleTextEditor {
 
 
         //TextField
-        JTextField textField = new JTextField();
         textArea.setEditable(true);
 
 
@@ -92,7 +95,7 @@ public class SimpleTextEditor {
         /*OpenButton Function */
         openButton.addActionListener(e -> {
             int returnVal = fileChooser.showOpenDialog(null);
-            if (returnVal == fileChooser.APPROVE_OPTION) {
+            if (returnVal == JFileChooser.APPROVE_OPTION) {
                 File file = fileChooser.getSelectedFile();
                 try (BufferedReader reader = new BufferedReader(new FileReader(file))) {
                     String content = "";
