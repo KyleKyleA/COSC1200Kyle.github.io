@@ -23,7 +23,7 @@ public class CryptDecryptGUI extends JFrame {
 
 
         // GUI SETUP
-        public GUISETUP() {
+        public CryptDecryptGUI() {
             //FRAME SETUP
             setTitle("Welcome to Crypt/DeCrypt GUI");
             setSize(500, 600);
@@ -33,6 +33,7 @@ public class CryptDecryptGUI extends JFrame {
             //FONT FOR THE PROGRAM
             Font aoda = new Font("Arial ", Font.PLAIN, 14);
 
+
             //Create components
             createMainPanel();
 
@@ -40,7 +41,10 @@ public class CryptDecryptGUI extends JFrame {
         }
 
         private void createMainPanel() {
+
             //LABEL OR TEXT AREA'S
+
+
 
             //RADIO BUTTONS
 
@@ -63,9 +67,15 @@ public class CryptDecryptGUI extends JFrame {
             button.add(DecryptBtn);
             button.add(ExitBtn);
 
+            // EXIT EXCECUTION
             ExitBtn.addActionListener(e -> System.exit(0));
 
-            // 6 TEXT AREA'S
+            // add both panels to frame
+
+
+        }
+        public static void main(String[] args) {
+
         }
 
     }
