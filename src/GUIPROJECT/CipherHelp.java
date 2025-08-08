@@ -2,7 +2,7 @@ package GUIPROJECT;
 
 import java.util.Scanner;
 
-public class CipherHelp extends CryptDecryptGUI{
+public class CipherHelp {
     static String ENGALPHABET = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz";
     static String COSCALPHABET = "YWLRASKTEZGMVHQBXNCDIJFUOPywlrasktezgmvhqbxncdijfuop";
 
