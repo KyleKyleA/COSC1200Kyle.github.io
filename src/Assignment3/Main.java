@@ -27,7 +27,7 @@ public class Main {
             System.out.println("---------------------------");
 
             //Implementation for HourlyWorker
-            HourlyWorker worker1 = new HourlyWorker("Kyle Angeles ", LocalDate.parse("2006-12-06"), "12345678", 17.50, 38);
+            HourlyWorker worker1 = new HourlyWorker("Kyle Angeles ", LocalDate.parse("2006-12-06"), "12345678", 19.30, 38);
             System.out.println("Hourly rate for " + worker1.getName() + ": " +
                     currency.format(worker1.getHourlyRate()));
             System.out.println("----------------------------");

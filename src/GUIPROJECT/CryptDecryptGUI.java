@@ -204,6 +204,59 @@ public class CryptDecryptGUI extends CipherHelp{
                 }
             });
 
+            decryptButton.addActionListener(e -> {
+                errorLabel.setText("");
+                String input = messageField.getText().trim();
+                if (input.isEmpty()) {
+                    errorLabel.setText("Message is required");
+                    return;
+                }
+
+                try {
+                    String result;
+                    if (subsBtn.isSelected()) {
+                        String a1 = alphabet1Field.getText().trim();
+                        String a2 = alphabet2Field.getText().trim();
+                        if (a1.isEmpty() || a1.length() != a2.length()) {
+
+                            errorLabel.setText("Both alphabets must be non-empty and equal in length");
+                            return;
+                        }
+                        int complexity = 1;
+                        try{
+                            complexity = Integer.parseInt(keyField.getText().trim());
+                            if (complexity < 1) complexity = 1;
+                        } catch (Exception ex) {
+                            complexity = 1;
+                        }
+                        //Logic is for reverse mapping
+                        result = substitutionCipher(input, complexity, a2, a1);
+                    } else {
+                        int shift = Integer.parseInt(shiftField.getText().trim());
+                        if (shift < 1 || shift > 25) {
+                            errorLabel.setText("Shift must be 1 and 25");
+                            return;
+                        }
+                        int complexity = 1;
+                        try  {
+                            complexity = Integer.parseInt(keyField.getText().trim());
+                            if (complexity < 1) complexity = 1;
+                        } catch (Exception ex) {
+                            complexity = 1;
+                        }
+                        // reverse shift by using (26 - shift)
+                        result = translationCipher(input, 26 - shift, complexity);
+                    }
+                    resultField.setText(result);
+                } catch (Exception ex) {
+                    errorLabel.setText("Error: " + ex.getMessage());
+                }
+            });
+
+
+
+
+
             exitButton.addActionListener(e -> newframe.dispose());
 
             // Adding every field into the newframe
@@ -229,9 +282,10 @@ public class CryptDecryptGUI extends CipherHelp{
 
             // Show window
             newframe.setVisible(true);
-        }
+        };
 
     }
+
 
 
 
