@@ -7,18 +7,20 @@ package GUIPROJECT;
  * to encrypt or decrypt.
  *
  * */
+
+/*REGION IMPORTS*/
 import javax.swing.*;
-import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.*;
-import java.awt.event.KeyAdapter;
 import java.awt.event.KeyEvent;
+/*REGION IMPORTS*/
 
-
+/*REGION FUNCTION*/
 public class CryptDecryptGUI extends CipherHelp{
     private JFrame windowframe;
 
         public CryptDecryptGUI() {
+            //GUI LAYOUT FOR THIS APPLICATION
             // THIS IS FOR LABELS, BUTTONS, TEXT AREA's
             final String WINDOW_TITLE = ("Kyle's Angeles Cipher/Decrypt Application");
             final String MESSAGE_LABEL = "Message:";
@@ -31,7 +33,7 @@ public class CryptDecryptGUI extends CipherHelp{
             final String DECRYPT_BUTTON_TEXT = "Decrypt";
             final String EXIT_BUTTON_TEXT = "Exit";
 
-            //MESSAGES AFTER
+            //MESSAGES WHEN YOU HOVER WITH YOUR MOUSE
             final String MESSAGE_TOOLTIP = "Enter the message to encrypt or decrypt.";
             final String RESULT_TOOLTIP = "Encrypted or decrypted result will appear here.";
             final String ALPHABET1_TOOLTIP = "Alphabet used in substitution cipher (source).";
@@ -43,6 +45,8 @@ public class CryptDecryptGUI extends CipherHelp{
             final String EXIT_TOOLTIP = "Click to close the application.";
             final String ZoomIN_TOOLTIP = "Click to zoom in on the application.";
             final String ZoomOut_TOOLTIP = "Click to zoom out on the application";
+            final String RESET_TOOLTIP = "Reset";
+
 
             /*SHORTCUTS OR HOTKEYS*/
             final char ENCRYPT_MNEMONIC = KeyEvent.VK_E;
@@ -50,6 +54,8 @@ public class CryptDecryptGUI extends CipherHelp{
             final char EXIT_MNEMONIC = KeyEvent.VK_X;
             final int ZOOM_IN_MNEMONIC = KeyEvent.VK_Z;
             final int ZOOM_OUT_MNEMONIC = KeyEvent.VK_O;
+            final char RESET_MNEMONIC = KeyEvent.VK_R;
+
 
             // Window setup
             windowframe = new JFrame(WINDOW_TITLE);
@@ -87,12 +93,14 @@ public class CryptDecryptGUI extends CipherHelp{
             JTextField alphabet2Field = new JTextField();
             /*END FOR ALPHABET FIELD*/
 
+            /*SHIFT LABEL ON TOP OF THE SHIFT BUTTON*/
             JLabel shiftLabel = new JLabel(SHIFT_LABEL);
             JTextField shiftField = new JTextField();
 
             JLabel keyLabel = new JLabel(KEY_LABEL);
             JTextField keyField = new JTextField();
 
+            // JRADIOBUTTON SUB AND TRANS
             JRadioButton subsBtn = new JRadioButton("Substitution", true);
             JRadioButton transbtn = new JRadioButton("Translation");
 
@@ -100,6 +108,7 @@ public class CryptDecryptGUI extends CipherHelp{
             cipherTypeGroup.add(subsBtn);
             cipherTypeGroup.add(transbtn);
 
+            //3 BUTTONS
             JButton encryptButton = new JButton(ENCRYPT_BUTTON_TEXT);
             JButton decryptButton = new JButton(DECRYPT_BUTTON_TEXT);
             JButton exitButton = new JButton(EXIT_BUTTON_TEXT);
@@ -112,11 +121,18 @@ public class CryptDecryptGUI extends CipherHelp{
             JButton zoomOutBtn = new JButton(ZoomOut_TOOLTIP);
             zoomOutBtn.setMnemonic(ZOOM_OUT_MNEMONIC);
 
+            /*Reset */
+            JButton ResetBtn = new JButton(RESET_TOOLTIP);
+            ResetBtn.setMnemonic(RESET_MNEMONIC);
+            ResetBtn.setToolTipText(RESET_TOOLTIP);
 
 
+            //This displays an error message as a label
             JLabel errorLabel = new JLabel("");
 
             // Set bounds for each TEXT AREA'S
+            // Set bounds for each JBUTTON
+            // set bounds for JLABEL
             int x1 = 30, x2 = 150, y = 30, h = 25, w1 = 120, w2 = 400;
             messageLabel.setBounds(x1, y, w1, h);
             messageScroll.setBounds(x2, y, w2, 60);
@@ -146,6 +162,7 @@ public class CryptDecryptGUI extends CipherHelp{
             decryptButton.setBounds(x2 + 120, y, 100, h);
             exitButton.setBounds(x2 + 240, y, 100, h);
 
+            ResetBtn.setBounds(x2 + 360, y, 100, h);
 
             // Tooltips
             messageField.setToolTipText(MESSAGE_TOOLTIP);
@@ -170,11 +187,13 @@ public class CryptDecryptGUI extends CipherHelp{
                 alphabet2Field.setEnabled(isSub);
                 shiftField.setEnabled(!isSub);
             };
+
             subsBtn.addActionListener(toggleFields);
             transbtn.addActionListener(toggleFields);
             toggleFields.actionPerformed(null);
 
             // ACTION LISTENER FOR EACH BUTTON
+            /*Action Listener for encrypt button*/
             encryptButton.addActionListener(e -> {
                 errorLabel.setText("");
                 String input = messageField.getText().trim();
@@ -220,6 +239,7 @@ public class CryptDecryptGUI extends CipherHelp{
                 }
             });
 
+            /*Action Listener for the decrypt button*/
             decryptButton.addActionListener(e -> {
                 errorLabel.setText("");
                 String input = messageField.getText().trim();
@@ -269,6 +289,7 @@ public class CryptDecryptGUI extends CipherHelp{
                 }
             });
 
+            //Zoom in and out are just hotkeys
             /*Zoom in action listnener*/
             zoomOutBtn.addActionListener(e ->{
                 Dimension size = windowframe.getSize();
@@ -276,10 +297,27 @@ public class CryptDecryptGUI extends CipherHelp{
                 windowframe.setSize(size.width + 100, size.height + 75);
             });
 
+
             zoomInBtn.addActionListener(e -> {
                 Dimension size = windowframe.getSize();
                 windowframe.setSize(size.width - 100, size.height - 75);
             });
+
+            /*Last feature going to add in this program is the reset button
+            * this just clears all text fields including what's inside
+            * the text area box*/
+            ResetBtn.addActionListener(e -> {
+                messageField.setText("");
+                resultField.setText("");
+                alphabet1Field.setText("");
+                alphabet2Field.setText("");
+                shiftField.setText("");
+                keyField.setText("");
+                errorLabel.setText("");
+                subsBtn.setSelected(true);
+                toggleFields.actionPerformed(null);
+            });
+
 
 
             exitButton.addActionListener(e -> windowframe.dispose());
@@ -305,6 +343,7 @@ public class CryptDecryptGUI extends CipherHelp{
             windowframe.add(exitButton);
             windowframe.add(zoomInBtn);
             windowframe.add(zoomOutBtn);
+            windowframe.add(ResetBtn);
 
 
             // Show window
@@ -312,6 +351,7 @@ public class CryptDecryptGUI extends CipherHelp{
         };
 
     }
+/*ENDREGION FUNCTION*/
 
 
 

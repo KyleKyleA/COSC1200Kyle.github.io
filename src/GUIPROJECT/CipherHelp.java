@@ -1,7 +1,11 @@
 package GUIPROJECT;
-
+/*
+*
+* Description - Used the same class from ASSIGNMENT 2 copy and pasted the logic
+* I've implemented and inserted into here for the GUI logic to work
+*  */
 import java.util.Scanner;
-
+/*REGION FUNCTION*/
 public class CipherHelp {
     static String ENGALPHABET = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz";
     static String COSCALPHABET = "YWLRASKTEZGMVHQBXNCDIJFUOPywlrasktezgmvhqbxncdijfuop";
@@ -88,3 +92,4 @@ public class CipherHelp {
         return result;
     }
 }
+/*ENDREGION FUNCTION*/
