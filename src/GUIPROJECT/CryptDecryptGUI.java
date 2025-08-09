@@ -8,6 +8,7 @@ package GUIPROJECT;
  *
  * */
 import javax.swing.*;
+import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.*;
 import java.awt.event.KeyAdapter;
@@ -15,7 +16,7 @@ import java.awt.event.KeyEvent;
 
 
 public class CryptDecryptGUI extends CipherHelp{
-    private JFrame newframe;
+    private JFrame windowframe;
 
         public CryptDecryptGUI() {
             // THIS IS FOR LABELS, BUTTONS, TEXT AREA's
@@ -40,19 +41,23 @@ public class CryptDecryptGUI extends CipherHelp{
             final String ENCRYPT_TOOLTIP = "Click to encrypt.";
             final String DECRYPT_TOOLTIP = "Click to decrypt.";
             final String EXIT_TOOLTIP = "Click to close the application.";
+            final String ZoomIN_TOOLTIP = "Click to zoom in on the application.";
+            final String ZoomOut_TOOLTIP = "Click to zoom out on the application";
 
             /*SHORTCUTS OR HOTKEYS*/
             final char ENCRYPT_MNEMONIC = KeyEvent.VK_E;
             final char DECRYPT_MNEMONIC = KeyEvent.VK_D;
             final char EXIT_MNEMONIC = KeyEvent.VK_X;
+            final int ZOOM_IN_MNEMONIC = KeyEvent.VK_Z;
+            final int ZOOM_OUT_MNEMONIC = KeyEvent.VK_O;
 
             // Window setup
-            newframe = new JFrame(WINDOW_TITLE);
-            newframe.setSize(700, 600);
-            newframe.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-            newframe.setLayout(null);
-            newframe.setLocationRelativeTo(null);
-            newframe.setResizable(false);
+            windowframe = new JFrame(WINDOW_TITLE);
+            windowframe.setSize(700, 600);
+            windowframe.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+            windowframe.setLayout(null);
+            windowframe.setLocationRelativeTo(null);
+            windowframe.setResizable(false);
 
             /*Label for Title
             * Alignment
@@ -99,6 +104,16 @@ public class CryptDecryptGUI extends CipherHelp{
             JButton decryptButton = new JButton(DECRYPT_BUTTON_TEXT);
             JButton exitButton = new JButton(EXIT_BUTTON_TEXT);
 
+            /*Extra Feature to this program allowing zoom in and zoom out option*/
+            //Zoom in
+            JButton zoomInBtn = new JButton(ZoomIN_TOOLTIP);
+            zoomInBtn.setMnemonic(ZOOM_IN_MNEMONIC);
+
+            JButton zoomOutBtn = new JButton(ZoomOut_TOOLTIP);
+            zoomOutBtn.setMnemonic(ZOOM_OUT_MNEMONIC);
+
+
+
             JLabel errorLabel = new JLabel("");
 
             // Set bounds for each TEXT AREA'S
@@ -130,6 +145,7 @@ public class CryptDecryptGUI extends CipherHelp{
             encryptButton.setBounds(x2, y, 100, h);
             decryptButton.setBounds(x2 + 120, y, 100, h);
             exitButton.setBounds(x2 + 240, y, 100, h);
+
 
             // Tooltips
             messageField.setToolTipText(MESSAGE_TOOLTIP);
@@ -253,35 +269,46 @@ public class CryptDecryptGUI extends CipherHelp{
                 }
             });
 
+            /*Zoom in action listnener*/
+            zoomOutBtn.addActionListener(e ->{
+                Dimension size = windowframe.getSize();
+                //Example width and size
+                windowframe.setSize(size.width + 100, size.height + 75);
+            });
+
+            zoomInBtn.addActionListener(e -> {
+                Dimension size = windowframe.getSize();
+                windowframe.setSize(size.width - 100, size.height - 75);
+            });
 
 
-
-
-            exitButton.addActionListener(e -> newframe.dispose());
+            exitButton.addActionListener(e -> windowframe.dispose());
 
             // Adding every field into the newframe
-            newframe.add(messageLabel);
-            newframe.add(messageScroll);
-            newframe.add(subsBtn);
-            newframe.add(transbtn);
-            newframe.add(alphabet1Label);
-            newframe.add(alphabet1Field);
-            newframe.add(alphabet2Label);
-            newframe.add(alphabet2Field);
-            newframe.add(shiftLabel);
-            newframe.add(shiftField);
-            newframe.add(keyLabel);
-            newframe.add(keyField);
-            newframe.add(resultLabel);
-            newframe.add(resultScroll);
-            newframe.add(errorLabel);
-            newframe.add(encryptButton);
-            newframe.add(decryptButton);
-            newframe.add(exitButton);
+            windowframe.add(messageLabel);
+            windowframe.add(messageScroll);
+            windowframe.add(subsBtn);
+            windowframe.add(transbtn);
+            windowframe.add(alphabet1Label);
+            windowframe.add(alphabet1Field);
+            windowframe.add(alphabet2Label);
+            windowframe.add(alphabet2Field);
+            windowframe.add(shiftLabel);
+            windowframe.add(shiftField);
+            windowframe.add(keyLabel);
+            windowframe.add(keyField);
+            windowframe.add(resultLabel);
+            windowframe.add(resultScroll);
+            windowframe.add(errorLabel);
+            windowframe.add(encryptButton);
+            windowframe.add(decryptButton);
+            windowframe.add(exitButton);
+            windowframe.add(zoomInBtn);
+            windowframe.add(zoomOutBtn);
 
 
             // Show window
-            newframe.setVisible(true);
+            windowframe.setVisible(true);
         };
 
     }
